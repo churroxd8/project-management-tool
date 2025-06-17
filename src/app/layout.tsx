@@ -1,5 +1,6 @@
 import './globals.css'
 import { ReactNode } from 'react'
+import { Toaster } from '@/components/ui/sonner'
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
@@ -9,6 +10,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <h1 className="text-xl font-bold">Project Management Tool</h1>
         </nav>
         <div>{children}</div>
+        <Toaster />
       </body>
     </html>
   )
