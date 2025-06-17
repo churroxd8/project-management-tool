@@ -1,0 +1,35 @@
+"use client"
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { useState } from "react"
+
+export function CreateProjectDialog() {
+    const [name, setName] = useState("")
+    const [description, setDescription] = useState("")
+
+    const handleCreate = () => {
+        // TODO: Send data to backend
+        console.log({ name, description })
+        setName("")
+        setDescription("")
+    }
+
+    return (
+        <Dialog>
+            <DialogTrigger asChild>
+                <Button>Create New Project</Button>
+            </DialogTrigger>
+            <DialogContent>
+                <DialogHeader>
+                    <DialogTitle>New Project</DialogTitle>
+                </DialogHeader>
+                <div className="space-y-4">
+                    <Input placeholder="Project name" value={name} onChange={e => setName(e.target.value)} />
+                    <Input placeholder="Short description" value={description} onChange={e => setDescription(e.target.value)} />
+                    <Button onClick={handleCreate} className="w-full">Create</Button>
+                </div>
+            </DialogContent>
+        </Dialog>
+    )
+}
