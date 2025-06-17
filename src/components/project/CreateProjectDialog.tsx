@@ -8,7 +8,7 @@ import { useState } from "react"
 export function CreateProjectDialog() {
     const [name, setName] = useState("")
     const [description, setDescription] = useState("")
-    /* const [ loading, setLoading ] = useState(false) */ // Let me think about this one
+    const [ loading, setLoading ] = useState(false) // Let me think about this one
 
     const handleCreate = () => {
         toast.success("Project created successfully!")
@@ -30,7 +30,7 @@ export function CreateProjectDialog() {
                 <div className="space-y-4">
                     <Input placeholder="Project name" value={name} onChange={e => setName(e.target.value)} />
                     <Input placeholder="Short description" value={description} onChange={e => setDescription(e.target.value)} />
-                    <Button onClick={handleCreate} className="w-full" >Create</Button>
+                    <Button onClick={handleCreate} className="w-full" disabled={loading}>{loading ? "Creating..." : "Create"}</Button>
                 </div>
             </DialogContent>
         </Dialog>
