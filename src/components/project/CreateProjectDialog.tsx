@@ -37,7 +37,7 @@ export function CreateProjectDialog() {
             const data = await res.json()
             toast.success("Project created!")
 
-            // Reset from
+            // Reset form
             setName("")
             setDescription("")
         } catch (error) {
